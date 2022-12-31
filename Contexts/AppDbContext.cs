@@ -18,6 +18,7 @@ public class AppDbContext : DbContext
     {
         builder.ApplyConfiguration<Cliente>(new ClienteEntityConfig());
         builder.ApplyConfiguration<Endereco>(new EnderecoEntityConfig());
+        builder.ApplyConfiguration<Pedido>(new PedidoEntityConfig());
     }
 
 }

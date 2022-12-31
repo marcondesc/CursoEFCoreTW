@@ -5,22 +5,45 @@ using Microsoft.VisualBasic;
 
 var db = new AppDbContext();
 
-var cliente = new Cliente
+
+/*#########################################################################*/
+/* cadastrando entidades com relacionamento 1:N */
+/*
+var cliente = db.Clientes.First();
+cliente.Pedidos.Add(new Pedido
 {
-    Name = "Cleyson Lima",
-    Cpf = "123.456.789.12",
-    Endereco = new Endereco
-    {
-        Estado = "SP",
-        Cidade = "São Paulo",
-        Bairro = "Cerqueira César",
-        Logradouro = "Travessa Alcides Cyrillo",
-        Numero = "338",
-        ClienteId = 1
-    }
-};
-db.Add(cliente);
+    Descricao = "Meu primeiro pedido",
+    Data = DateTime.Now
+});
+cliente.Pedidos.Add(new Pedido
+{
+    Descricao = "Meu segundo pedido",
+    Data = DateTime.Now
+});
 db.SaveChanges();
+
+// outra forma de cadastro entidades com relacionamento 1:N 
+var pedido = new Pedido
+{
+    Descricao = "Primeiro pedido da Maria José",
+    Data = DateTime.Now,
+    ClienteId = 3
+};
+db.Add(pedido);
+db.SaveChanges();
+
+
+// outra forma de cadastro entidades com relacionamento 1:N 
+var cliente = db.Clientes.First();
+var pedido = new Pedido
+{
+    Descricao = "Primeiro terceiro pedido",
+    Data = DateTime.Now,
+    Cliente = cliente
+};
+db.Add(pedido);
+db.SaveChanges();
+*/
 
 
 /*#########################################################################*/

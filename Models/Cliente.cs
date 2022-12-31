@@ -3,12 +3,14 @@ namespace EFCoreExample.Models;
 public class Cliente
 {
     public int Id { get; set; }
-
     public string Name { get; set; } = string.Empty;
-
     public string Cpf { get; set; } = string.Empty;
 
+    // relacionamento 1:1
     public Endereco Endereco { get; set; } = null!;
+    // relacionamento 1:N
+    public ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
+
 
     // só pra facilitar na hora de ler no console
     public override string ToString()
